@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    {% for fruit in fruits %}
+        <h1>{{fruit.name}}</h1>
+    {% endfor %}
+
+    {% component 'table' title='Shopping List' as shopping_table%}
+        {% call shopping_table.columns %}
+            Name
+        {% endcall %}
+        {% call shopping_table.columns %}
+            Price
+        {% endcall %}
+        {% call shopping_table.columns %}
+            Quantity
+        {% endcall %}
+
+        {% for fruit in fruits %}
+        <!-- Why fruit is not available in here -->
+            <!-- {% call shopping_table.rows %}
+                <td>{{fruit.name}}</td>
+                <td>{{fruit.price}}</td>
+                <td>{{fruit.quantity}}</td>
+            {% endcall %} -->
+            {% call shopping_table.rows %}
+                <td>Banana</td>
+                <td>0.60</td>
+                <td>5</td>
+            {% endcall %}
+        {% endfor %}
+    {% endcomponent %}
+</body>
+</html>

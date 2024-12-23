@@ -1,0 +1,17 @@
+
+<body>
+    <h2>Basic Table</h2>
+    <table>
+        <tr>
+            {% for column in self.columns.value %}
+                {{column}}
+            {% endfor %}
+        </tr>
+        {% for row in self.rows.value %}
+        <tr>
+            {{row}}
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
