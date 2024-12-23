@@ -1,0 +1,1 @@
+# django-viewcomponent-playground
